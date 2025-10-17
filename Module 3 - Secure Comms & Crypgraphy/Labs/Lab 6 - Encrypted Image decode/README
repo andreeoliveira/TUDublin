@@ -1,0 +1,33 @@
+Lab 6 - Encrypted Image (Challenge Lab)
+
+ACTIVITY DETAILS
+
+Description
+OK everyone seems to be getting all my flags so I've decided to convert this one into a bitmap and then encrypt it with AES using ECB so eh good luck trying to decrypt this one. 
+
+Haha someone has already tried to decrypt it using the wrong key, which resulted in the mess attached. Give up! I've used full strength AES. 
+
+Your time would be better spent on one of the other challenges.  See the attached aes.bmp and try and unscramble the image.
+
+BMP: aes.bmp.enc
+
+LAB 6 ENCRYPTED IMAGE (CHALLENEG LAB) HINTS
+
+The hint says to remove the header file and replace it. The header of a BMP file is present from 00 to 0D. i.e., the first 14 bytes. The first 2 bytes contain the characters ‘BM’, which says that it is a bitmap file. The next 4 bytes specify the file size, the next 4 are reserved, unused and the last 4 bytes are offset from the beginning of the file to the beginning of the bitmap data.
+
+Please have a look at this URL:
+
+https://www.ece.ualberta.ca/~elliott/ee552/studentAppNotes/2003_w/misc/bmp_file_format/bmp_file_format.htm 
+
+Decryption Methodology:
+•
+Code Logic:
+o Process binary file and divided the binary data into blocks of size 16 bytes
+o Created a list called palette containing 256 random RGB colors.
+o Created a mapping of unique blocks to color indices
+o Mapped each block to its corresponding color.
+o Created a new RGB image and populated it with the color data
+
+• Tools and Libraries used:
+o Python with PyCryptodome library for AES decryption
+o Image handling with Python Imaging Library(PIL)
